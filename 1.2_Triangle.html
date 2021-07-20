@@ -6,14 +6,10 @@
   <body>
     <script>
       function solution(a, b, c) {
-        let answer = "YES",
-          max;
-        let tot = a + b + c;
-        if (a > b) max = a;
-        else max = b;
-        if (c > max) max = c;
-        if (tot - max <= max) answer = "NO";
-        return answer;
+        let arr = [a, b, c];
+        arr.sort();
+
+        return arr[2] < arr[0] + arr[1];
       }
 
       console.log(solution(13, 33, 17));

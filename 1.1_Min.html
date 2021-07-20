@@ -5,7 +5,12 @@
   </head>
   <body>
     <script>
-      function solution(a, b, c) {}
+      function solution(a, b, c) {
+        let arr = [a, b, c];
+        return arr.reduce((acc, cur) => (acc < cur ? acc : cur));
+      }
+
+      console.log(solution(6, 5, 11));
     </script>
   </body>
 </html>

@@ -8,3 +8,4 @@
 | 02  | 삼각형 판별하기 | 1.2_Triangle.html    |
 | 03  | 연필개수        | 1.3_CountPencil.html |
 | 04  | 1부터 N까지 합  | 1.4_Sum.html         |
+| 05  | 최솟값 구하기   | 1.5_Min.html         |
