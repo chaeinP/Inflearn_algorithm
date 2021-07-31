@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function parentheses(string) {
+        let idx;
+        let str = string.split("");
+        let stack = [];
+        for (let i = 0; i < string.length; i++) {
+          if (string[i] === "(") {
+            stack.push(i);
+          } else if (string[i] === ")") {
+            idx = stack.pop();
+            for (idx; idx <= i; idx++) {
+              str[idx] = 0;
+            }
+          }
+        }
+
+        for (let i = 0; i < string.length; i++) {
+          if (str[i] !== 0) {
+            stack.push(str[i]);
+          }
+        }
+        return stack.join("");
+      }
+
+      parentheses("(A(BC)D)EF(G(H)(IJ)K)LM(N)");
+    </script>
+  </body>
+</html>

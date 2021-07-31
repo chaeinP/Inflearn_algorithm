@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function parentheses(string) {
+        let stack = [];
+        for (let i = 0; i < string.length; i++) {
+          if (string[i] === "(") {
+            stack.push(string[i]);
+          } else {
+            stack.pop();
+          }
+        }
+
+        if (!stack.length) {
+          return "YES";
+        }
+        return "NO";
+      }
+
+      parentheses("(()(()))(()");
+    </script>
+  </body>
+</html>
