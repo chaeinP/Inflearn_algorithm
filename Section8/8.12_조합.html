@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, m) {
+        let dy = Array.from(Array(n + 1), () => Array(m + 1).fill(0));
+
+        function DFS(n, m) {
+          if (dy[n][m]) return dy[n][m];
+          if (n === m) return 1;
+          if (m === 0 || n === 0) return 1;
+          else {
+            return (dy[n][m] = DFS(n - 1, m - 1) + DFS(n - 1, m));
+          }
+        }
+
+        return DFS(n, m);
+      }
+
+      //점수, 시간
+      solution(33, 19);
+
+      console.log(solution(33, 19));
+    </script>
+  </body>
+</html>

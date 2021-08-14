@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(N, M, arr) {
+        let obj = {};
+        for (let el of arr) {
+          if (obj[el[0]]) obj[el[0]].push(el[1]);
+          else obj[el[0]] = [el[1]];
+        }
+
+        let answer;
+        let Q = [];
+        function BFS(L) {}
+
+        BFS(0, 1);
+      }
+
+      //점수, 시간
+      solution(5, 9, [
+        [1, 2],
+        [1, 3],
+        [1, 4],
+        [2, 1],
+        [2, 3],
+        [2, 5],
+        [3, 4],
+        [4, 2],
+        [4, 5],
+      ]);
+
+      console.log(
+        solution(5, 9, [
+          [1, 2],
+          [1, 3],
+          [1, 4],
+          [2, 1],
+          [2, 3],
+          [2, 5],
+          [3, 4],
+          [4, 2],
+          [4, 5],
+        ])
+      );
+    </script>
+  </body>
+</html>

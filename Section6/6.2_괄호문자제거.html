@@ -5,30 +5,42 @@
   </head>
   <body>
     <script>
-      function parentheses(string) {
-        let idx;
-        let str = string.split("");
-        let stack = [];
-        for (let i = 0; i < string.length; i++) {
-          if (string[i] === "(") {
-            stack.push(i);
-          } else if (string[i] === ")") {
-            idx = stack.pop();
-            for (idx; idx <= i; idx++) {
-              str[idx] = 0;
-            }
-          }
-        }
+      // function parentheses(string) {
+      //   let idx;
+      //   let str = string.split("");
+      //   let stack = [];
+      //   for (let i = 0; i < string.length; i++) {
+      //     if (string[i] === "(") {
+      //       stack.push(i);
+      //     } else if (string[i] === ")") {
+      //       idx = stack.pop();
+      //       for (idx; idx <= i; idx++) {
+      //         str[idx] = 0;
+      //       }
+      //     }
+      //   }
 
-        for (let i = 0; i < string.length; i++) {
-          if (str[i] !== 0) {
-            stack.push(str[i]);
-          }
+      //   for (let i = 0; i < string.length; i++) {
+      //     if (str[i] !== 0) {
+      //       stack.push(str[i]);
+      //     }
+      //   }
+      //   return stack.join("");
+      // }
+
+      function parentheses(string) {
+        let answer;
+        let stack = [];
+        for (let x of string) {
+          if (x === ")") {
+            while (stack.pop() !== "(");
+          } else stack.push(x);
         }
-        return stack.join("");
+        answer = stack.join("");
+        return answer;
       }
 
-      parentheses("(A(BC)D)EF(G(H)(IJ)K)LM(N)");
+      console.log(parentheses("(A(BC)D)EF(G(H)(IJ)K)LM(N)"));
     </script>
   </body>
 </html>

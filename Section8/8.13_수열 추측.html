@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, f) {
+        let dy = Array.from(Array(n + 1), () => Array(n).fill(0));
+        let combiArr = [];
+        let check = new Array(n + 1).fill(0);
+        let p = new Array(n).fill(0);
+        let answer;
+        let flag = 0;
+
+        function combi(n, m) {
+          if (dy[n][m]) return dy[n][m];
+          if (n === m || m === 0) return 1;
+          else {
+            return (dy[n][m] = combi(n - 1, m - 1) + combi(n - 1, m));
+          }
+        }
+
+        function DFS(l, sum) {
+          if (flag === 1) return;
+          if (l === n) {
+            if (sum === f) {
+              answer = p.slice();
+              flag = 1;
+            }
+          } else {
+            for (let i = 1; i <= n; i++) {
+              if (check[i] === 0) {
+                check[i] = 1;
+                p[l] = i;
+                DFS(l + 1, sum + combiArr[l] * p[l]);
+                check[i] = 0;
+              }
+            }
+          }
+        }
+
+        for (let i = 0; i < n; i++) {
+          combiArr[i] = combi(n - 1, i);
+        }
+
+        DFS(0, 0);
+        return answer;
+      }
+
+      //점수, 시간
+      solution(4, 16);
+
+      console.log(solution(4, 16));
+    </script>
+  </body>
+</html>

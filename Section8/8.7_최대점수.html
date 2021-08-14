@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr, M) {
+        let l = 0;
+        let sum = 0;
+        let time = 0;
+        let max = sum;
+
+        function DFS(l, sum, time) {
+          if (time > 20) return;
+          if (l === arr.length) {
+            if (sum > max) {
+              max = sum;
+            }
+          } else {
+            DFS(l + 1, sum + arr[l][0], time + arr[l][1]);
+            DFS(l + 1, sum, time);
+          }
+        }
+
+        DFS(l, sum, time);
+        return max;
+      }
+
+      //점수, 시간
+      solution(
+        [
+          [10, 5],
+          [25, 12],
+          [15, 8],
+          [6, 3],
+          [7, 4],
+        ],
+        20
+      );
+
+      console.log(
+        solution(
+          [
+            [10, 5],
+            [25, 12],
+            [15, 8],
+            [6, 3],
+            [7, 4],
+          ],
+          20
+        )
+      );
+    </script>
+  </body>
+</html>

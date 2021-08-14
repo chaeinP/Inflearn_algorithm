@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      let i = 0;
+      let str = [];
+      function solution(n) {
+        if (n === 0) return str.join(" ");
+        str.push(i + 1);
+        i++;
+        return solution(n - 1);
+      }
+
+      console.log(solution(3));
+    </script>
+  </body>
+</html>
