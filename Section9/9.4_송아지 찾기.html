@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(S, E) {
+        let dis = new Array(S + E).fill(0);
+        let ch = new Array(S + E).fill(0);
+        let answer = 0;
+        let queue = [S];
+        ch[S] = 1;
+        while (queue.length) {
+          let cur = queue.shift();
+
+          for (let el of [cur - 1, cur + 1, cur + 5]) {
+            if (el === E) {
+              return (answer = dis[cur] + 1);
+            }
+            if (el > 0 && el <= S + E && ch[el] === 0) {
+              ch[el] = 1;
+              dis[el] = dis[cur] + 1;
+              queue.push(el);
+            }
+          }
+        }
+      }
+
+      //점수, 시간
+      solution(8, 3);
+
+      console.log(solution(8, 3));
+    </script>
+  </body>
+</html>
